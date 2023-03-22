@@ -1,0 +1,297 @@
+.taskForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    
+    position: absolute;
+    width: 736px;
+    height: 54px;
+    left: calc(50% - 736px/2);
+    top: 173px;
+    
+}
+
+.taskForm textarea {
+
+box-sizing: border-box;
+
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px;
+gap: 8px;
+resize: none;
+
+width: 638px;
+height: 54px;
+
+background: var(--gray-500);
+
+border: 1px solid var(--gray-700);
+border-radius: 8px;
+
+flex: none;
+order: 0;
+flex-grow: 1;
+
+}
+
+
+.taskForm button[type="submit"] {
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 16px;
+gap: 8px;
+
+cursor: pointer;
+
+width: 90px;
+height: 52px;
+
+background: var(--blue-dark);
+border-radius: 8px;
+
+flex: none;
+order: 1;
+flex-grow: 0;
+
+color: var(--gray-100)
+
+}
+
+.iconeButton {
+    width: 16px;
+    height: 16px;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    
+    color: var(--gray-100);
+    }
+
+
+.linhaContadores {
+
+margin-top: 4.0625rem;
+width: 46rem;
+display: flex;
+justify-content: space-between;
+
+/*display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-end;
+padding: 0px;
+gap: 561px;
+
+width: 736px;
+height: 19px;
+
+
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;*/
+}
+
+
+
+.tarefasCriadas {
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 16.94px;
+
+   /* font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 16.94px;
+
+    width: 106px;
+    height: 17px;
+
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+
+    flex: none;
+order: 0;
+flex-grow: 0; */
+
+color: var(--blue);
+
+}
+
+.tarefasCriadas>span {
+    color: var(--gray-200);
+    background: var(--gray-400);
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 40%;
+}
+
+.tarefasCriadasComContador {
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 138px;
+height: 19px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.tarefasConcluidas {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 16.94px;
+
+color: var(--purple);
+
+}
+
+.tarefasConcluidas>span {
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 40%;
+    
+    background: #333333;
+    border-radius: 999px;
+    
+    
+}
+
+.tarefasConcluidasComContador {
+  /*  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 111px;
+height: 19px;
+
+ESSE CÓDIGO NÃO TAVA SERVINDO DE NADA?!
+
+
+flex: none;
+order: 1;
+flex-grow: 0;*/
+}
+
+.tarefasConcluidasNumero {
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 2px 8px;
+gap: 10px;
+
+width: 25px;
+height: 19px;
+
+/* Gray 400 */
+
+background: #333333;
+border-radius: 999px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+.taskList {
+
+   /* Auto layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 12px;
+
+width: 736px;
+height: 408px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+}
+
+.textWithoutTask {
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+position: absolute;
+width: 736px;
+height: 287px;
+left: calc(50% - 736px/2);
+top: 291px;
+
+}
+
+.clipboard {
+
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 64px 24px;
+gap: 16px;
+
+
+width: 736px;
+height: 244px;
+
+/* Grey 400 */
+
+border-top: 1px solid #333333;
+border-radius: 8px;
+}
+
+.clipboardTrueTask {
+    display: none;
+}
+
+.clipboard>img {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.clipboardStrong02 {
+    font-weight: 200;
+}
+
