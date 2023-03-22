@@ -32,61 +32,46 @@ export interface TaskProps {
         }, 0)
 
 
-        function onDeleteTask(taskToDeleteId: string) {
-            const tasksWithoutDeletedOne = tasks.filter(task => {
+    function onDeleteTask(taskToDeleteId: string) {
+        const tasksWithoutDeletedOne = tasks.filter(task => {
               return task.id != taskToDeleteId;
             })
-            setTasks(tasksWithoutDeletedOne);
-          } 
+              setTasks(tasksWithoutDeletedOne);
+        } 
 
-
-          function  onChangeIsCompleted(changeIsCompleted: boolean) {
-            const tasksCompleted = tasks.map(task => {
-              return changeIsCompleted == true;
-            })
-            setTasks(tasksCompleted);       
-          }
-
-
-        function handleSubmit(event: FormEvent) {
-            event.preventDefault()
-            
+    function handleSubmit(event: FormEvent) {
+        event.preventDefault()
             setTasks(state => [...state, { 
                 title: newTaskText,
                 isCompleted: false,
                 id: uuidv4(),
             }])
-
             setNewTaskText('');
-            
           }
 
             const handleNewTaskChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
                 setNewTaskText(event.target.value);
               };
 
-              function concludedTask(id: string, isCompleted: boolean) {
-                tasks.map((tasks) => {
-                  if (tasks.id === id && isCompleted === false) {
-                    tasks.isCompleted = true;
-                  } else if (tasks.id === id && isCompleted === true) {
-                    tasks.isCompleted = false;
-                  }
+    function concludedTask(id: string, isCompleted: boolean) {
+        tasks.map((tasks) => {
+              if (tasks.id === id && isCompleted === false) {
+                  tasks.isCompleted = true;
+              } else if (tasks.id === id && isCompleted === true) {
+                  tasks.isCompleted = false;
+              }
                   return tasks;
                 });
                 setTasks(tasks)
-
                 setCompletedTasks(tasks.filter(task => {
                   return task.isCompleted == true
                 }))
               }
 
-    return(
+        return(
 
             <header className={styles.header}>
-
                 <form onSubmit={handleSubmit}className={styles.taskForm}>
-                    
                     <textarea
                         placeholder="Adicione uma nova tarefa"
                         value={newTaskText}
@@ -98,57 +83,47 @@ export interface TaskProps {
                         Criar
                         <PlusCircle className={styles.iconeButton} />
                     </button>
-                    
                     <br/><br/>
-
                 </form>
                 
-                <div className={styles.textWithoutTask}> 
-
-                
-                <div className={styles.linhaContadores}>
+          <div className={styles.textWithoutTask}> 
+              <div className={styles.linhaContadores}>
                 <p className={styles.tarefasCriadas}>Tarefas Criadas: <span>{tasks.length}</span></p>
                 <p className={styles.tarefasConcluidas}>Concluídas: 
                 <span>{completedTasks.length} de {tasks?.length}</span> </p>
-                </div>
+              </div>
 
-                
+            <section className={tasks.length > 0 ? styles.clipboardTrueTask : styles.clipboard}>    
+              <img src={Clipboard} />
+              <strong className={styles.clipboardStrong01}>
+                Você ainda não tem tarefas cadastradas
+              </strong>
 
-                <section className={tasks.length > 0 ? styles.clipboardTrueTask : styles.clipboard}>
-                  
-          <img src={Clipboard} />
-          <strong className={styles.clipboardStrong01}>
-            Você ainda não tem tarefas cadastradas
-          </strong>
+              <strong className={styles.clipboardStrong02}>
+                Crie tarefas e organize seus itens a fazer
+              </strong>
+            </section>
 
-          <strong className={styles.clipboardStrong02}>
-            Crie tarefas e organize seus itens a fazer
-          </strong>
+              <div className={styles.taskList}>
+
+                  {tasks.map(task => {
+                  return (        
+
+                    <DeleteAndCheck  
+                      id= {task.id}
+                      key={task.id}
+                      title={task.title}
+                      isCompleted={task.isCompleted}
+                      onDeleteTask={onDeleteTask}
+                      taskConcluded = {concludedTask}                   
+                    />
+                  )
+                })}
+
+              </div>
+          </div>
+
+          </header>
           
-        </section>
-
-        <div className={styles.taskList}>
-
-        {tasks.map(task => {
-        return (        
-
-          <DeleteAndCheck  
-            id= {task.id}
-            key={task.id}
-            title={task.title}
-            isCompleted={task.isCompleted}
-            onDeleteTask={onDeleteTask}
-            
-            taskConcluded = {concludedTask}                   
-          />
-        )
-      })}
-
-</div>
-
-        </div>
-      
-            </header>
-
     );
 }
